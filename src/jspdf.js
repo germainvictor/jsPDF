@@ -5900,6 +5900,7 @@ function jsPDF(options) {
     // eslint-disable-next-line no-unreachable
     var fs = require("fs");
     var buffer = Buffer.from(getArrayBuffer(buildDocument()));
+    if (options.returnBuffer) { return buffer }
     if (options.returnPromise === false) {
       fs.writeFileSync(filename, buffer);
     } else {
